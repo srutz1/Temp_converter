@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Temperature Converter</title>
+</head>
+
+<body>
+    <h1>Enter the Temperature</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Celsius</label><br>
+            <input type="number" value="0" id="cel"
+                class="input-in"><!--since input is in the form of number...default value will be 0-->
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" class="input-in">
+        </div>
+        <script>
+            var cel = document.getElementById("cel");
+            var fah = document.getElementById("fah");
+
+            cel.addEventListener('input', function () {
+                let c = this.value;
+                let f = (c * 9 / 5) + 32;
+                if (!Number.isInteger(f)) {
+                    f = f.toFixed(5); // will give the answer upto 5 decimal places
+                }
+                fah.value = f; // assigning the value in "f" into fah
+            });
+            fah.addEventListener('input', function () {
+                let f = this.value;
+                let c = (f - 32) * 5 / 9;
+                if (!Number.isInteger(c)) {
+                    c = c.toFixed(3); // will give the answer upto 5 decimal places
+                }
+                cel.value = c; // assigning the value in "c" into cel
+            });
+        </script>
+
+
+    </div>
+</body>
+<html>
